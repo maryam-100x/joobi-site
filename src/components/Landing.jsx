@@ -15,16 +15,17 @@ const TEXT = {
   EN: {
     subtitle: 'The most famous emoji collection, the Chinese Pepe. Create, collect, share unique Joobis',
     createBtn: 'Create Your Joobi',
-    buttons: ['Buy $joobi', 'Copy CA', 'Community'],
+    buttons: ['Buy $joobi', 'Copy CA', 'Official', 'Community'],
     reaction: 'CA Copied!',
   },
   中文: {
     subtitle: '最火爆的表情合集，被称为“中国 Pepe”。创建、收集、分享独特的 Joobi。',
     createBtn: '创建你的 Joobi',
-    buttons: ['购买 $joobi', '复制合约地址', '社区'],
+    buttons: ['购买 $joobi', '复制合约地址', '官方账号', '社区'],
     reaction: '合约地址已复制！',
   }
 };
+
 
 
 
@@ -83,23 +84,24 @@ const Landing = ({ onGalleryClick, language }) => {
 
 
 
- const buttons = [
+const buttons = [
   {
     label: TEXT[language].buttons[0],
     action: () => window.open('https://pump.fun/coin/3gFD6JcB1XUjuCG9RCoAjkRgDuceFQ7UQTxtLXzzpump', '_blank'),
     icon: '💊'
   },
   {
-    label: 'Official',
+    label: TEXT[language].buttons[2], // "Official"
     action: () => window.open('https://x.com/JOOBItheEmoji', '_blank'),
     icon: '𝕏'
   },
   {
-    label: TEXT[language].buttons[2],
+    label: TEXT[language].buttons[3], // "Community"
     action: () => window.open('https://x.com/i/communities/1921023478162993382', '_blank'),
     icon: '𝕏'
   }
 ];
+
 
 
 
