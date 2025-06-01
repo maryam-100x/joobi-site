@@ -10,8 +10,10 @@ const COLORS = [
   { en: 'Pastel Pink', zh: '粉彩色' },
   { en: 'Black', zh: '黑色' },
   { en: 'Orange', zh: '橙色' },
-  { en: 'Teal', zh: '蓝绿色' }
+  { en: 'Teal', zh: '蓝绿色' },
+  { en: 'Blue', zh: '蓝色' } // ✅ Added Blue
 ];
+
 
 const EXPRESSIONS = [
   { file: "01", en: "Happy Grin", zh: "开心笑" },
@@ -236,7 +238,7 @@ const Gallery = ({ language }) => {
     bg.onload = () => {
       ctx.drawImage(bg, 0, 0, 1000, 1000);
       emoji.onload = () => {
-        ctx.drawImage(emoji, 244, 244, 512, 512);
+ctx.drawImage(emoji, 30, 30, 940, 940);
         const link = document.createElement('a');
         link.download = `joobi_${color}_${expression}_${currentBg}.png`;
         link.href = canvas.toDataURL();
