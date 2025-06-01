@@ -13,20 +13,19 @@ const EXPRESSIONS = Array.from({ length: 94 }, (_, i) =>
 
 const TEXT = {
   EN: {
-    title: '$joobi',
-    subtitle: 'The Most Famous TikTok Emoji. Create, share, and collect unique Joobis.',
+    subtitle: 'The most famous emoji collection, the Chinese Pepe. Create, collect, share unique Joobis',
     createBtn: 'Create Your Joobi',
     buttons: ['Buy $joobi', 'Copy CA', 'Community'],
     reaction: 'CA Copied!',
   },
   中文: {
-    title: '$joobi',
-    subtitle: '最知名的 TikTok 表情包。创建、分享并收集独一无二的 Joobi。',
+    subtitle: '最火爆的表情合集，被称为“中国 Pepe”。创建、收集、分享独特的 Joobi。',
     createBtn: '创建你的 Joobi',
     buttons: ['购买 $joobi', '复制合约地址', '社区'],
     reaction: '合约地址已复制！',
   }
 };
+
 
 
 
@@ -84,16 +83,16 @@ const Landing = ({ onGalleryClick, language }) => {
 
 
 
-  const buttons = [
+ const buttons = [
   {
     label: TEXT[language].buttons[0],
     action: () => window.open('https://pump.fun/coin/3gFD6JcB1XUjuCG9RCoAjkRgDuceFQ7UQTxtLXzzpump', '_blank'),
     icon: '💊'
   },
   {
-    label: TEXT[language].buttons[1],
-    action: copyCA,
-    icon: '📋'
+    label: 'Official',
+    action: () => window.open('https://x.com/JOOBItheEmoji', '_blank'),
+    icon: '𝕏'
   },
   {
     label: TEXT[language].buttons[2],
@@ -101,6 +100,8 @@ const Landing = ({ onGalleryClick, language }) => {
     icon: '𝕏'
   }
 ];
+
+
 
 
   return (
@@ -172,7 +173,7 @@ const Landing = ({ onGalleryClick, language }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.img
-            src="/joobi.jpeg"
+            src="/joobi.PNG"
             alt="joobi"
             className="main-logo"
             whileHover={{ scale: 1.05 }}
@@ -205,19 +206,51 @@ const Landing = ({ onGalleryClick, language }) => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           {buttons.map((button, index) => (
-            <motion.button
-              key={index}
-              className="action-button"
-              onClick={button.action}
-              whileHover={{ y: -3, boxShadow: "0 10px 20px rgba(0, 195, 255, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <span className="button-icon">{button.icon}</span>
-              {button.label}
-            </motion.button>
-          ))}
+  <motion.button
+    key={index}
+    className="action-button"
+    onClick={button.action}
+    whileHover={{ y: -3, boxShadow: "0 10px 20px rgba(0, 195, 255, 0.3)" }}
+    whileTap={{ scale: 0.95 }}
+    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+  >
+    {/* Official = icon on right */}
+    {button.label === 'Official' ? (
+  <span
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transform: 'translateX(20px)' // 👈 tweak this value manually
+    }}
+  >
+    <span>{button.label}</span>
+    <span className="button-icon" style={{ marginLeft: '6px' }}>{button.icon}</span>
+  </span>
+) : (
+  <>
+    <span className="button-icon">{button.icon}</span>
+    {button.label}
+  </>
+)}
+
+
+
+  </motion.button>
+))}
+
         </motion.div>
+        <motion.button
+  className="contract-copy-button"
+  onClick={copyCA}
+  whileHover={{ y: -3, boxShadow: "0 10px 20px rgba(0, 195, 255, 0.3)" }}
+  whileTap={{ scale: 0.95 }}
+  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+  style={{ marginTop: '1rem', padding: '0.75rem 1.5rem', fontSize: '1rem' }}
+>
+  {contract}
+</motion.button>
+
 
         {/* <motion.div
   className="live-stats"

@@ -121,7 +121,6 @@ const BACKGROUNDS = [
   { file: "NYSE", en: "NYSE", zh: "纽约证券交易所" },
   { file: "mountains", en: "Mountains", zh: "山脉" },
   { file: "athens", en: "Athens", zh: "雅典" },
-  { file: "mumbai", en: "Mumbai", zh: "孟买" },
   { file: "delhislums", en: "Delhi Slums", zh: "德里贫民窟" },
   { file: "goldreserve", en: "Gold Reserve", zh: "黄金储备" },
   { file: "mars", en: "Mars", zh: "火星" },
@@ -284,11 +283,13 @@ const Gallery = ({ language }) => {
               style={{ backgroundImage: `url(/background/${currentBg}.jpeg)` }}
             >
               <motion.img
-                src={`/Colored/${color}/${expression}.png`}
-                alt="joobi"
-                className="joobi-image"
-                whileHover={{ scale: 1.05 }}
-              />
+  src={`/Colored/${color}/${expression}.png`}
+  alt="joobi"
+  className="joobi-image"
+  style={{ width: '325px', height: '325px' }} // or try 580/600px if you want
+  whileHover={{ scale: 1.05 }}
+/>
+
             </div>
 
             <button className="nav-button right" onClick={generateRandomCombo}>›</button>
